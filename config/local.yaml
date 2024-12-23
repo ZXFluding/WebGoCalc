@@ -1,0 +1,6 @@
+env: "local" #local, dev, prod
+repository_path: "./storage/repository.db" #need init db data for postgres
+http_server:
+  address: "localhost:8082"
+  timeout: 5s #read timeout
+  idle_timeout: 60s #connect timeout
