@@ -1,5 +1,11 @@
 env: "local" #local, dev, prod
-repository_path: "./storage/repository.db" #need init db data for postgres
+storage: 
+    path: "./storage/storage.db"
+    host: "localhost"
+    port: 5432
+    user: "postgres"
+    password: "uwx-u5p"
+    dbname: "storage"
 http_server:
   address: "localhost:8082"
   timeout: 5s #read timeout

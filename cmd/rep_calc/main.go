@@ -26,7 +26,7 @@ func main() {
 	log.Debug("debug masseges are enabled")
 
 	//TODO: init Repositories: postgrers
-	repository, err := postgres.New(cfg.RepositoryPath)
+	repository, err := postgres.New(&cfg.Storage)
 	if err != nil {
 		log.Error("failed to init db: ", sl.Err(err))
 		os.Exit(1)
