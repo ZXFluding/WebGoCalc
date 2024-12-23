@@ -24,6 +24,7 @@ func main() {
 	//Logger is up
 	log.Info("starting rep_cal", slog.String("env", cfg.Env))
 	log.Debug("debug masseges are enabled")
+
 	//TODO: init Repositories: postgrers
 	repository, err := postgres.New(cfg.RepositoryPath)
 	if err != nil {

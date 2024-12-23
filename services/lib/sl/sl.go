@@ -1,10 +1,6 @@
 package sl
 
-import (
-	"log/slog"
-
-	_ "github.com/lib/pq"
-)
+import "log/slog"
 
 func Err(err error) slog.Attr {
 	return slog.Attr{
