@@ -34,9 +34,9 @@ func main() {
 
 	// use Queries
 	queries := postgres.New(dbpool)
-	_ = queries
-	// Ваш код работы с базой данных здесь
 
+	// use DB here
+	_ = queries
 	//TODO: init router: gin-gonic
 
 	//TODO: init controllers
