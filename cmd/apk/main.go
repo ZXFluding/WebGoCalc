@@ -3,9 +3,9 @@ package main
 import (
 	"log/slog"
 	"os"
-	"test/services/config"
-	"test/services/lib/sl"
-	"test/services/repositories/postgres"
+	"test/internal/config"
+	"test/internal/database/postgres"
+	"test/internal/services/sl"
 )
 
 const (
@@ -25,13 +25,18 @@ func main() {
 	log.Info("starting rep_cal", slog.String("env", cfg.Env))
 	log.Debug("debug masseges are enabled")
 
-	//TODO: init Repositories: postgrers
-	repository, err := postgres.New(&cfg.Storage)
+	// connection to DB
+	dbpool, err := postgres.Connect(*cfg)
 	if err != nil {
-		log.Error("failed to init db: ", sl.Err(err))
-		os.Exit(1)
+		log.Info("Failed to connect to database: ", sl.Err(err))
 	}
-	_ = repository
+	defer dbpool.Close()
+
+	// use Queries
+	queries := postgres.New(dbpool)
+	_ = queries
+	// Ваш код работы с базой данных здесь
+
 	//TODO: init router: gin-gonic
 
 	//TODO: init controllers

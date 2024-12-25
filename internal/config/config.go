@@ -21,7 +21,7 @@ type HTTPServer struct {
 	IdleTimeOut time.Duration `yaml:"idle_timeout" env-default:"60s"`
 }
 type Storage struct {
-	Path     string `yaml:"path" env-required:"true"`
+	// Path     string `yaml:"path" env-required:"true"`
 	Host     string `yaml:"host" env-default:"localhost"`
 	Port     int    `yaml:"port" env-default:"5432"`
 	User     string `yaml:"user" env-default:"postgres"`
