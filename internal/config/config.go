@@ -21,7 +21,7 @@ type HTTPServer struct {
 	IdleTimeOut time.Duration `yaml:"idle_timeout" env-default:"60s"`
 }
 type Storage struct {
-	// Path     string `yaml:"path" env-required:"true"`
+	Path     string `yaml:"path" env-required:"true"`
 	Host     string `yaml:"host" env-default:"localhost"`
 	Port     int    `yaml:"port" env-default:"5432"`
 	User     string `yaml:"user" env-default:"postgres"`
@@ -32,6 +32,9 @@ type Storage struct {
 
 // load config
 func MustLoad() *Config {
+	// if err := godotenv.Load("../../.env"); err != nil {
+	// 	log.Print("No .env file found")
+	// }
 	configPath := os.Getenv("CONFIG_PATH")
 	if configPath == "" {
 		log.Fatalln("config_path is not set")

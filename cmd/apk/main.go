@@ -6,6 +6,8 @@ import (
 	"test/internal/config"
 	"test/internal/database/postgres"
 	"test/internal/services/sl"
+
+	"github.com/gin-gonic/gin"
 )
 
 const (
@@ -38,6 +40,8 @@ func main() {
 	// use DB here
 	_ = queries
 	//TODO: init router: gin-gonic
+	router := gin.Default()
+	router.Use()
 
 	//TODO: init controllers
 
