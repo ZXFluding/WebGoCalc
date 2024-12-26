@@ -15,8 +15,6 @@ services:
       DB_NAME: your_db
     depends_on:
       - postgres
-    networks:
-      - app-network
   postgres:
     image: postgres:15
     container_name: webgocalc_postgres
@@ -28,10 +26,9 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
 volumes:
-  postgres-data:
-
+  postgres_data:
+  
 networks:
   app-network:
     driver: bridge
